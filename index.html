@@ -1329,189 +1329,139 @@ body::before{
 @media(max-width:700px){
 
     body{
-
         overflow:hidden;
-
     }
 
-
     .titulo{
-
-        top:16px;
-
-        padding:
-            0 10px;
-
+        top:14px;
+        padding:0 14px;
     }
 
     .titulo h1{
-
-        font-size:25px;
-
-        margin-bottom:4px;
-
+        font-size:24px;
+        line-height:1.15;
+        margin-bottom:5px;
     }
 
     .titulo p{
-
         font-size:12px;
-
+        line-height:1.35;
     }
 
-
+    /* La escena ocupa menos altura y sube para que
+       no quede un vacío enorme entre el título y la cúpula. */
     .escena{
-
-        top:54%;
-
+        top:51%;
         width:100vw;
-
-        height:470px;
-
+        height:500px;
     }
-
 
     .cupula{
-        bottom:40px;
-        width:86%;
-        height:380px;
+        bottom:47px;
+        width:84%;
+        height:365px;
         border-radius:50% 50% 8px 8px;
     }
 
     .base{
-        bottom:7px;
-        width:91%;
-        height:62px;
+        bottom:13px;
+        width:88%;
+        height:60px;
         border-radius:10px 10px 20px 20px;
     }
 
     .base::before{
-        top:-12px;
+        top:-11px;
         width:94%;
-        height:25px;
+        height:24px;
     }
 
     .base::after{
         top:-6px;
-        width:83%;
+        width:82%;
         height:14px;
     }
 
     .sombra{
-        bottom:0;
-        width:89%;
-        height:31px;
+        bottom:3px;
+        width:86%;
+        height:28px;
     }
-
 
     .tierra{
-
-        height:75px;
-
+        height:76px;
+        width:94%;
     }
 
-
-    /* girasoles */
-
+    /* Flores más pequeñas y centradas dentro de la campana */
     .girasol{
-        scale:.56;
-        bottom:22px;
+        bottom:20px;
+        scale:.50;
     }
-
 
     .girasol.uno{
-
-        left:-18px;
-
+        left:2%;
     }
-
 
     .girasol.dos{
-
         left:50%;
-
         margin-left:-50px;
-        scale:.62;
-
+        scale:.55;
     }
-
 
     .girasol.tres{
-
-        right:-20px;
-
-        scale:.50;
-
+        right:1%;
+        scale:.45;
     }
-
-
-    /* tulipanes */
 
     .tulipan{
-        scale:.52;
-        bottom:22px;
+        bottom:20px;
+        scale:.46;
     }
-
 
     .tulipan.uno{
-
-        left:18%;
-
+        left:25%;
     }
-
 
     .tulipan.dos{
-
-        right:12%;
-
-        scale:.45;
-
+        right:22%;
+        scale:.40;
     }
-
-
-    /* mensaje */
 
     .mensaje-final{
-
-        bottom:12px;
-
-        font-size:12px;
-
+        bottom:10px;
         width:94%;
-
+        font-size:12px;
+        line-height:1.3;
     }
-
 
     .boton{
-
+        margin-top:8px;
         font-size:12px;
-
-        padding:
-            9px 20px;
-
+        padding:9px 20px;
     }
-
 
     .tarjeta{
-
-        padding:
-            28px 20px;
-
+        width:92%;
+        max-height:82vh;
+        overflow-y:auto;
+        padding:24px 18px;
+        border-radius:24px;
     }
 
+    .tarjeta .corazon-grande{
+        font-size:50px;
+    }
 
     .tarjeta h2{
-
-        font-size:24px;
-
+        font-size:22px;
+        margin:8px 0;
     }
-
 
     .tarjeta p{
-
         font-size:14px;
-
+        line-height:1.55;
     }
-
 }
 
 </style>
