@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Un pequeño detalle para ti ❤️</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    overflow:hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #ffb7cf 0%,
+            #f58eaf 35%,
+            #e86e98 65%,
+            #c94d7b 100%
+        );
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   FONDO DE LUZ
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:600px;
+    height:600px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.18),
+            transparent 65%
+        );
+
+    pointer-events:none;
+
+    animation:
+        luzFondo 6s ease-in-out infinite;
+
+}
+
+@keyframes luzFondo{
+
+    0%,
+    100%{
+        transform:
+            translate(-50%,-50%)
+            scale(.9);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.titulo{
+
+    position:fixed;
+
+    top:22px;
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    z-index:100;
+
+    padding:
+        0 15px;
+
+    pointer-events:none;
+
+}
+
+.titulo h1{
+
+    font-size:
+        clamp(27px,5vw,48px);
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+        0 4px 15px
+        rgba(130,35,75,.35);
+
+    margin-bottom:7px;
+
+}
+
+.titulo p{
+
+    font-size:
+        clamp(13px,2vw,17px);
+
+    color:
+        rgba(255,255,255,.9);
+
+    text-shadow:
+        0 2px 8px
+        rgba(100,30,60,.3);
+
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.estrellas{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.estrella{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 8px
+        rgba(255,255,255,.95);
+
+    animation:
+        estrellaBrilla
+        var(--duracion)
+        ease-in-out
+        infinite alternate;
+
+}
+
+@keyframes estrellaBrilla{
+
+    from{
+
+        opacity:.2;
+
+        transform:
+            scale(.5);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1.8);
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+.escena{
+
+    position:absolute;
+
+    left:50%;
+    top:55%;
+
+    width:
+        min(850px,90vw);
+
+    height:
+        min(650px,70vh);
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index:10;
+
+}
+
+
+/* =====================================================
+   SOMBRA
+===================================================== */
+
+.sombra{
+    position:absolute;
+    left:50%;
+    bottom:2px;
+    width:78%;
+    height:42px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:rgba(0,0,0,.42);
+    filter:blur(13px);
+    z-index:4;
+}
+
+
+/* =====================================================
+   BASE NEGRA REAL — SOPORTE DE LA CÚPULA
+===================================================== */
+
+.base{
+    position:absolute;
+    left:50%;
+    bottom:12px;
+    width:78%;
+    height:82px;
+    transform:translateX(-50%);
+    border-radius:12px 12px 25px 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #333333 0%,
+            #171717 24%,
+            #080808 68%,
+            #020202 100%
+        );
+
+    border:
+        3px solid #3f3f3f;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.55),
+        inset 0 4px 7px rgba(255,255,255,.10),
+        inset 0 -12px 18px rgba(0,0,0,.75);
+
+    z-index:30;
+}
+
+
+/* aro metálico superior */
+
+.base::before{
+    content:"";
+
+    position:absolute;
+    left:50%;
+    top:-17px;
+
+    width:94%;
+    height:34px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4b4b4b 0%,
+            #1b1b1b 38%,
+            #050505 100%
+        );
+
+    border:
+        3px solid #555;
+
+    box-shadow:
+        inset 0 5px 7px rgba(255,255,255,.12),
+        inset 0 -5px 8px rgba(0,0,0,.85),
+        0 3px 8px rgba(0,0,0,.55);
+
+    z-index:1;
+}
+
+
+/* hueco donde se inserta el vidrio */
+
+.base::after{
+    content:"";
+
+    position:absolute;
+    left:50%;
+    top:-8px;
+
+    width:83%;
+    height:18px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #000 0%,
+            #090909 55%,
+            #292929 100%
+        );
+
+    box-shadow:
+        inset 0 3px 5px rgba(0,0,0,.9);
+
+    z-index:2;
+}
+
+
+/* =====================================================
+   CÚPULA DE VIDRIO — CAMPANA REAL
+===================================================== */
+
+.cupula{
+    position:absolute;
+    left:50%;
+    bottom:51px;
+
+    width:72%;
+    height:508px;
+
+    transform:translateX(-50%);
+
+    border-radius:
+        50% 50% 8px 8px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255,255,255,.20) 0%,
+            rgba(255,255,255,.07) 17%,
+            rgba(255,255,255,.025) 42%,
+            rgba(255,190,215,.055) 68%,
+            rgba(255,255,255,.15) 100%
+        );
+
+    border:
+        3px solid rgba(255,255,255,.50);
+
+    box-shadow:
+        inset 14px 0 35px rgba(255,255,255,.13),
+        inset -18px 0 38px rgba(255,255,255,.08),
+        0 10px 30px rgba(0,0,0,.18);
+
+    overflow:hidden;
+
+    z-index:20;
+}
+
+
+/* borde inferior del cristal */
+
+.cupula::after{
+    content:"";
+
+    position:absolute;
+    left:50%;
+    bottom:-4px;
+
+    width:100%;
+    height:24px;
+
+    transform:translateX(-50%);
+
+    border-radius:0 0 50% 50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.02),
+            rgba(255,255,255,.13)
+        );
+
+    border-top:
+        2px solid rgba(255,255,255,.26);
+
+    pointer-events:none;
+
+    z-index:55;
+}
+
+
+/* =====================================================
+   SUELO INTERIOR
+===================================================== */
+
+.tierra{
+    position:absolute;
+    left:50%;
+    bottom:-2px;
+
+    width:94%;
+    height:106px;
+
+    transform:translateX(-50%);
+
+    border-radius:50% 50% 0 0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 25%,
+            #896143 0%,
+            #65432c 48%,
+            #3c2619 100%
+        );
+
+    box-shadow:
+        inset 0 8px 12px rgba(255,255,255,.04);
+
+    z-index:3;
+}
+
+
+/* =====================================================
+   REFLEJO DEL VIDRIO
+===================================================== */
+
+.reflejo{
+
+    position:absolute;
+
+    top:-20%;
+
+    left:-40%;
+
+    width:25%;
+
+    height:150%;
+
+    transform:
+        rotate(15deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    filter:
+        blur(5px);
+
+    animation:
+        reflejoVidrio
+        7s ease-in-out
+        infinite;
+
+    pointer-events:none;
+
+    z-index:60;
+
+}
+
+@keyframes reflejoVidrio{
+
+    0%{
+        left:-45%;
+    }
+
+    50%{
+        left:120%;
+    }
+
+    100%{
+        left:120%;
+    }
+
+}
+
+
+/* =====================================================
+   SUELO INTERIOR
+===================================================== */
+
+.tierra{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    width:90%;
+
+    height:110px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50% 50% 0 0;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            #7c593b,
+            #503724
+        );
+
+    z-index:3;
+
+}
+
+
+/* =====================================================
+   🌻 GIRASOL
+===================================================== */
+
+.girasol{
+
+    position:absolute;
+
+    width:180px;
+
+    height:300px;
+
+    bottom:40px;
+
+    z-index:15;
+
+    animation:
+        balanceo
+        5s ease-in-out
+        infinite;
+
+    transform-origin:
+        bottom center;
+
+}
+
+.girasol.uno{
+
+    left:10%;
+
+    animation-delay:
+        -.8s;
+
+}
+
+.girasol.dos{
+
+    left:50%;
+
+    margin-left:-90px;
+    scale:.82;
+
+    animation-delay:
+        -2s;
+
+}
+
+.girasol.tres{
+
+    right:8%;
+
+    scale:.72;
+
+    animation-delay:
+        -3.2s;
+
+}
+
+@keyframes balanceo{
+    0%,100%{
+        rotate:-2deg;
+    }
+    50%{
+        rotate:3deg;
+    }
+}
+
+
+/* tallo */
+
+.girasol .tallo{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    width:9px;
+
+    height:190px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #356a35,
+            #75a84d,
+            #315d31
+        );
+
+}
+
+
+/* hojas */
+
+.girasol .hoja{
+
+    position:absolute;
+
+    width:65px;
+
+    height:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #74a94e,
+            #315c32
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+}
+
+.girasol .hoja.izquierda{
+
+    left:20px;
+
+    bottom:75px;
+
+    transform:
+        rotate(-25deg);
+
+}
+
+.girasol .hoja.derecha{
+
+    right:18px;
+
+    bottom:115px;
+
+    transform:
+        rotate(25deg);
+
+}
+
+
+/* cabeza */
+
+.cabeza-girasol{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:120px;
+
+    height:120px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* pétalos */
+
+.petalo-girasol{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:38px;
+    height:62px;
+
+    transform-origin:
+        50% 100%;
+
+    transform:
+        translate(-50%,-100%)
+        rotate(var(--angulo));
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe66b,
+            #f7b928
+        );
+
+    box-shadow:
+        0 2px 5px
+        rgba(130,80,10,.15);
+
+}
+
+
+/* centro */
+
+.centro-girasol{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:45px;
+    height:45px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #9d6323,
+            #5d3617
+        );
+
+    box-shadow:
+        inset 0 0 0 5px
+        #7b471b;
+
+}
+
+
+/* =====================================================
+   🌷 TULIPANES
+===================================================== */
+
+.tulipan{
+
+    position:absolute;
+
+    width:130px;
+
+    height:280px;
+
+    bottom:45px;
+
+    z-index:14;
+
+    animation:
+        balanceoTulipan
+        4.5s ease-in-out
+        infinite;
+
+}
+
+.tulipan.uno{
+
+    left:28%;
+
+    animation-delay:
+        -1.5s;
+
+}
+
+.tulipan.dos{
+
+    right:25%;
+
+    scale:.8;
+
+    animation-delay:
+        -3s;
+
+}
+
+@keyframes balanceoTulipan{
+    0%,100%{
+        rotate:-2deg;
+    }
+    50%{
+        rotate:3deg;
+    }
+}
+
+
+/* tallo */
+
+.tulipan .tallo{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    width:8px;
+
+    height:180px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #346a3c,
+            #73a950,
+            #315c34
+        );
+
+}
+
+
+/* hojas */
+
+.tulipan .hoja{
+
+    position:absolute;
+
+    width:60px;
+
+    height:25px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #72a950,
+            #315e35
+        );
+
+}
+
+.tulipan .hoja.izquierda{
+
+    left:5px;
+
+    bottom:70px;
+
+    transform:
+        rotate(-25deg);
+
+}
+
+.tulipan .hoja.derecha{
+
+    right:5px;
+
+    bottom:100px;
+
+    transform:
+        rotate(25deg);
+
+}
+
+
+/* cabeza tulipán */
+
+.cabeza-tulipan{
+
+    position:absolute;
+
+    left:50%;
+
+    top:15px;
+
+    width:82px;
+
+    height:100px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* pétalos */
+
+.petalo-tulipan{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:48px;
+
+    height:92px;
+
+    border-radius:
+        60% 60% 30% 30%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff789d,
+            #e5326c
+        );
+
+}
+
+.petalo-tulipan.izq{
+
+    left:0;
+
+    transform:
+        rotate(-18deg);
+
+}
+
+.petalo-tulipan.centro{
+
+    left:17px;
+
+    height:105px;
+
+    z-index:3;
+
+}
+
+.petalo-tulipan.der{
+
+    right:0;
+
+    transform:
+        rotate(18deg);
+
+}
+
+
+/* =====================================================
+   PARTÍCULAS DENTRO DE LA CÚPULA
+===================================================== */
+
+.brillos{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:40;
+
+    pointer-events:none;
+
+}
+
+.brillo{
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 15px
+        white;
+
+    animation:
+        subirBrillo
+        var(--tiempo)
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes subirBrillo{
+
+    0%{
+
+        transform:
+            translateY(30px)
+            scale(.3);
+
+        opacity:0;
+
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    70%{
+        opacity:.8;
+    }
+
+    100%{
+
+        transform:
+            translateY(-180px)
+            scale(1.3);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.mensaje-final{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(600px,90%);
+
+    text-align:center;
+
+    z-index:100;
+
+    color:white;
+
+    font-size:
+        clamp(13px,2vw,17px);
+
+    text-shadow:
+        0 3px 12px
+        rgba(100,20,50,.4);
+
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+.boton{
+
+    margin-top:12px;
+
+    padding:
+        11px 24px;
+
+    border:1px solid
+        rgba(255,255,255,.5);
+
+    border-radius:50px;
+
+    background:
+        rgba(255,255,255,.16);
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    backdrop-filter:
+        blur(8px);
+
+    transition:.3s;
+
+}
+
+.boton:hover{
+
+    background:
+        rgba(255,255,255,.3);
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(110,30,65,.45);
+
+    backdrop-filter:
+        blur(12px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.5s;
+
+    z-index:200;
+
+}
+
+.modal.activo{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.tarjeta{
+
+    width:
+        min(460px,92%);
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,210,225,.92),
+            rgba(230,130,165,.92)
+        );
+
+    color:#702747;
+
+    border:
+        2px solid
+        rgba(255,255,255,.65);
+
+    box-shadow:
+        0 25px 80px
+        rgba(100,20,55,.4);
+
+    transform:
+        scale(.8);
+
+    transition:.5s;
+
+}
+
+.modal.activo .tarjeta{
+
+    transform:
+        scale(1);
+
+}
+
+.tarjeta .corazon-grande{
+
+    font-size:65px;
+
+    animation:
+        latido
+        1.3s ease-in-out
+        infinite;
+
+}
+
+@keyframes latido{
+
+    0%,
+    100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+.tarjeta h2{
+
+    font-size:28px;
+
+    margin:
+        12px 0;
+
+}
+
+.tarjeta p{
+
+    line-height:1.7;
+
+    font-size:15px;
+
+}
+
+
+/* =====================================================
+   CORAZONES FLOTANTES
+===================================================== */
+
+.corazon{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    z-index:300;
+
+    pointer-events:none;
+
+    animation:
+        subirCorazon
+        5s linear
+        forwards;
+
+}
+
+@keyframes subirCorazon{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(0)
+            scale(.5);
+
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.3);
+
+    }
+
+}
+
+
+/* =====================================================
+   📱 TELÉFONOS
+===================================================== */
+
+@media(max-width:700px){
+
+    body{
+
+        overflow:hidden;
+
+    }
+
+
+    .titulo{
+
+        top:16px;
+
+        padding:
+            0 10px;
+
+    }
+
+    .titulo h1{
+
+        font-size:25px;
+
+        margin-bottom:4px;
+
+    }
+
+    .titulo p{
+
+        font-size:12px;
+
+    }
+
+
+    .escena{
+
+        top:54%;
+
+        width:100vw;
+
+        height:470px;
+
+    }
+
+
+    .cupula{
+        bottom:40px;
+        width:86%;
+        height:380px;
+        border-radius:50% 50% 8px 8px;
+    }
+
+    .base{
+        bottom:7px;
+        width:91%;
+        height:62px;
+        border-radius:10px 10px 20px 20px;
+    }
+
+    .base::before{
+        top:-12px;
+        width:94%;
+        height:25px;
+    }
+
+    .base::after{
+        top:-6px;
+        width:83%;
+        height:14px;
+    }
+
+    .sombra{
+        bottom:0;
+        width:89%;
+        height:31px;
+    }
+
+
+    .tierra{
+
+        height:75px;
+
+    }
+
+
+    /* girasoles */
+
+    .girasol{
+        scale:.56;
+        bottom:22px;
+    }
+
+
+    .girasol.uno{
+
+        left:-18px;
+
+    }
+
+
+    .girasol.dos{
+
+        left:50%;
+
+        margin-left:-50px;
+        scale:.62;
+
+    }
+
+
+    .girasol.tres{
+
+        right:-20px;
+
+        scale:.50;
+
+    }
+
+
+    /* tulipanes */
+
+    .tulipan{
+        scale:.52;
+        bottom:22px;
+    }
+
+
+    .tulipan.uno{
+
+        left:18%;
+
+    }
+
+
+    .tulipan.dos{
+
+        right:12%;
+
+        scale:.45;
+
+    }
+
+
+    /* mensaje */
+
+    .mensaje-final{
+
+        bottom:12px;
+
+        font-size:12px;
+
+        width:94%;
+
+    }
+
+
+    .boton{
+
+        font-size:12px;
+
+        padding:
+            9px 20px;
+
+    }
+
+
+    .tarjeta{
+
+        padding:
+            28px 20px;
+
+    }
+
+
+    .tarjeta h2{
+
+        font-size:24px;
+
+    }
+
+
+    .tarjeta p{
+
+        font-size:14px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ESTRELLAS DEL FONDO
+===================================================== -->
+
+<div
+    class="estrellas"
+    id="estrellas">
+</div>
+
+
+<!-- =====================================================
+     TÍTULO
+===================================================== -->
+
+<header class="titulo">
+
+    <h1>
+        Un pequeño detalle para ti ❤️
+    </h1>
+
+    <p>
+        Aunque todavía nos conocemos poquito,
+        quise dejarte un pequeño detalle.
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     ESCENA
+===================================================== -->
+
+<div class="escena">
+
+
+    <!-- sombra -->
+
+    <div class="sombra"></div>
+
+
+    <!-- =================================================
+         CÚPULA
+    ================================================== -->
+
+    <div class="cupula">
+
+
+        <!-- tierra -->
+
+        <div class="tierra"></div>
+
+
+        <!-- =================================================
+             GIRASOL 1
+        ================================================== -->
+
+        <div class="girasol uno">
+
+            <div class="tallo"></div>
+
+            <div class="hoja izquierda"></div>
+
+            <div class="hoja derecha"></div>
+
+
+            <div class="cabeza-girasol">
+
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:0deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:45deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:90deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:135deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:180deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:225deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:270deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:315deg">
+                </div>
+
+
+                <div class="centro-girasol"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             GIRASOL 2
+        ================================================== -->
+
+        <div class="girasol dos">
+
+            <div class="tallo"></div>
+
+            <div class="hoja izquierda"></div>
+
+            <div class="hoja derecha"></div>
+
+
+            <div class="cabeza-girasol">
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:0deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:45deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:90deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:135deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:180deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:225deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:270deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:315deg">
+                </div>
+
+                <div class="centro-girasol"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             GIRASOL 3
+        ================================================== -->
+
+        <div class="girasol tres">
+
+            <div class="tallo"></div>
+
+            <div class="hoja izquierda"></div>
+
+            <div class="hoja derecha"></div>
+
+
+            <div class="cabeza-girasol">
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:0deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:45deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:90deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:135deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:180deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:225deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:270deg">
+                </div>
+
+                <div
+                    class="petalo-girasol"
+                    style="--angulo:315deg">
+                </div>
+
+                <div class="centro-girasol"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             🌷 TULIPÁN 1
+        ================================================== -->
+
+        <div class="tulipan uno">
+
+            <div class="tallo"></div>
+
+            <div class="hoja izquierda"></div>
+
+            <div class="hoja derecha"></div>
+
+
+            <div class="cabeza-tulipan">
+
+                <div class="petalo-tulipan izq"></div>
+
+                <div class="petalo-tulipan centro"></div>
+
+                <div class="petalo-tulipan der"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             🌷 TULIPÁN 2
+        ================================================== -->
+
+        <div class="tulipan dos">
+
+            <div class="tallo"></div>
+
+            <div class="hoja izquierda"></div>
+
+            <div class="hoja derecha"></div>
+
+
+            <div class="cabeza-tulipan">
+
+                <div class="petalo-tulipan izq"></div>
+
+                <div class="petalo-tulipan centro"></div>
+
+                <div class="petalo-tulipan der"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BRILLOS
+        ================================================== -->
+
+        <div
+            class="brillos"
+            id="brillos">
+        </div>
+
+
+        <!-- reflejo del vidrio -->
+
+        <div class="reflejo"></div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         BASE
+         El aro recibe el borde inferior del vidrio.
+    ================================================== -->
+
+    <div class="base"></div>
+
+</div>
+
+
+<!-- =====================================================
+     MENSAJE INFERIOR
+===================================================== -->
+
+<div class="mensaje-final">
+
+    ✨ Hay un pequeño detalle para ti ✨
+
+    <br>
+
+    <button
+        class="boton"
+        onclick="abrirSorpresa()">
+
+        ❤️ Abrir detalle
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="modal">
+
+    <div class="tarjeta">
+
+        <div class="corazon-grande">
+            ❤️
+        </div>
+
+        <h2>
+            Un pequeño detalle para ti
+        </h2>
+
+        <p>
+
+            Sé que quizás no nos conocemos demasiado
+            y que tampoco hemos hablado mucho.
+
+            <br><br>
+
+            Pero me pareciste una persona especial
+            y simplemente quise hacerte un pequeño
+            detalle diferente.
+
+            <br><br>
+
+            No espero que esto signifique algo enorme.
+            Solo quería sacarte una pequeña sonrisa
+            y que supieras que hay alguien que piensa
+            que eres bonita e interesante.
+
+            <br><br>
+
+            🌻 Espero que te guste este pequeño jardín
+            que hice para ti.
+
+            <br><br>
+
+            Y si al menos consiguió hacerte sonreír,
+            entonces ya valió la pena. ❤️
+
+        </p>
+
+        <button
+            class="boton"
+            onclick="cerrarSorpresa()">
+
+            💕 Cerrar
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   CREAR ESTRELLAS
+===================================================== */
+
+const estrellas =
+document.getElementById("estrellas");
+
+for(let i=0;i<75;i++){
+
+    const estrella =
+        document.createElement("div");
+
+    estrella.className="estrella";
+
+    estrella.style.left =
+        Math.random()*100+"%";
+
+    estrella.style.top =
+        Math.random()*100+"%";
+
+    estrella.style.setProperty(
+        "--duracion",
+        (1.5+Math.random()*4)+"s"
+    );
+
+    estrella.style.animationDelay =
+        Math.random()*5+"s";
+
+    estrellas.appendChild(estrella);
+
+}
+
+
+/* =====================================================
+   BRILLOS DENTRO DE LA CÚPULA
+===================================================== */
+
+const brillos =
+document.getElementById("brillos");
+
+for(let i=0;i<18;i++){
+
+    const brillo =
+        document.createElement("div");
+
+    brillo.className="brillo";
+
+    brillo.style.left =
+        (10+Math.random()*80)+"%";
+
+    brillo.style.top =
+        (45+Math.random()*45)+"%";
+
+    brillo.style.setProperty(
+        "--tiempo",
+        (4+Math.random()*5)+"s"
+    );
+
+    brillo.style.animationDelay =
+        Math.random()*5+"s";
+
+    brillos.appendChild(brillo);
+
+}
+
+
+/* =====================================================
+   ABRIR SORPRESA
+===================================================== */
+
+function abrirSorpresa(){
+
+    document
+        .getElementById("modal")
+        .classList
+        .add("activo");
+
+    crearCorazones();
+
+}
+
+
+/* =====================================================
+   CERRAR
+===================================================== */
+
+function cerrarSorpresa(){
+
+    document
+        .getElementById("modal")
+        .classList
+        .remove("activo");
+
+}
+
+
+/* =====================================================
+   CORAZONES
+===================================================== */
+
+function crearCorazones(){
+
+    for(let i=0;i<30;i++){
+
+        setTimeout(()=>{
+
+            const corazon =
+                document.createElement("div");
+
+            corazon.className="corazon";
+
+            corazon.textContent =
+                Math.random() > .5
+                ? "❤️"
+                : "💗";
+
+            corazon.style.left =
+                Math.random()*100+"%";
+
+            corazon.style.fontSize =
+                (15+Math.random()*25)+"px";
+
+            corazon.style.animationDuration =
+                (4+Math.random()*3)+"s";
+
+            document
+                .body
+                .appendChild(corazon);
+
+
+            setTimeout(()=>{
+
+                corazon.remove();
+
+            },7000);
+
+        },i*120);
+
+    }
+
+}
+
+
+/* =====================================================
+   TOCAR FUERA DE LA TARJETA
+===================================================== */
+
+document
+    .getElementById("modal")
+    .addEventListener(
+        "click",
+        function(e){
+
+            if(e.target === this){
+
+                cerrarSorpresa();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
